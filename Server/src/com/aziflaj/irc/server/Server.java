@@ -18,9 +18,14 @@ public class Server {
         ) {
             System.out.println("Client ready");
             String inputLine;
+            String output;
+
+            IrcProtocol protocol = new IrcProtocolImpl();
             while ((inputLine = in.readLine()) != null) {
                 System.out.println("Client says: " + inputLine);
-                if (inputLine.equals("quit")) {
+                output = protocol.processInput(inputLine);
+
+                if (output.equals("Bye")) {
                     in.close();
                     out.close();
                     serverSocket.close();

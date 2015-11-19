@@ -8,15 +8,16 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) {
-        try {
+        try (
             Socket client = new Socket("localhost", 4444);
-            PrintWriter outputStream = new PrintWriter(client.getOutputStream(), true);
+            PrintWriter out = new PrintWriter(client.getOutputStream(), true);
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+        ) {
             while (true) {
                 System.out.print(">>> ");
                 String input = stdIn.readLine();
-                outputStream.println(input);
-                if (input.equals("quit")) {
+                out.println(input);
+                if (input.equals("\\quit")) {
                     client.close();
                     break;
                 }
