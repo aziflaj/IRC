@@ -10,7 +10,7 @@ fi
 if [ "$1" == -c ] || [ "$1" == --compile ]; then
     echo "compiling"
     mkdir -p Server/out/classes
-    javac -cp Server/src Server/src/com/aziflaj/irc/server/*.java -d Server/out/classes
+    javac -cp Server/src Server/src/com/aziflaj/irc/**/*.java -d Server/out/classes
 elif [ "$1" == -r ] || [ "$1" == --run ]; then
     ./$0 --compile
     echo "running"
