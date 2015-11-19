@@ -5,25 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Scanner;
 
-public class Main {
+public class Client {
     public static void main(String[] args) {
         try {
             Socket client = new Socket("localhost", 4444);
             PrintWriter outputStream = new PrintWriter(client.getOutputStream(), true);
-//            BufferedReader stdInput = new BufferedReader(new InputStreamReader(System.in));
-            Scanner stdIn = new Scanner(System.in);
-//            while (true) {
+            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+            while (true) {
                 System.out.print(">>> ");
-//                String input = stdInput.readLine();
-                String input = stdIn.nextLine();
+                String input = stdIn.readLine();
                 outputStream.println(input);
-//                if (input.equals("quit")) {
-//                    client.close();
-//                    break;
-//                }
-//            }
+                if (input.equals("quit")) {
+                    client.close();
+                    break;
+                }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
