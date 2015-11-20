@@ -8,9 +8,12 @@ if [ $# -ne 1 ]; then
     exit
 fi
 
+PROPERTIES=Client/resources/client.properties
+
 if [ "$1" == -c ] || [ "$1" == --compile ]; then
     echo "compiling"
     mkdir -p Client/out/classes
+#    javac -cp Client/src Client/src/com/aziflaj/irc/client/**/*.java:${PROPERTIES}: -d Client/out/classes
     javac -cp Client/src Client/src/com/aziflaj/irc/client/**/*.java -d Client/out/classes
     javac -cp Client/src Client/src/com/aziflaj/irc/client/*.java -d Client/out/classes
 elif [ "$1" == -d ] || [ "$1" == --delete ]; then
