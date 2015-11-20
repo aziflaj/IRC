@@ -47,11 +47,9 @@ public class IrcClient {
             while (true) {
                 try {
                     if ((line = in.readLine()) != null) {
-                        // TODO: update view
-                        System.out.println(line);
                         StyledDocument doc = MainFrame.messageThreadTextPane.getStyledDocument();
                         try {
-                            doc.insertString(doc.getLength(), line, null);
+                            doc.insertString(doc.getLength(), line + "\n", null);
                         } catch (BadLocationException e) {
                             e.printStackTrace();
                         }
