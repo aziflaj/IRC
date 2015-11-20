@@ -15,17 +15,15 @@ public class Broker {
     }
 
     /**
-     * Get an instance of the {@code Broker} class, turning it into a Singleton
+     * Get the instance of the {@code Broker} Singleton
      *
      * @return The instance of the singleton
      */
     public static Broker getInstance() {
         if (instance == null) {
             instance = new Broker();
-            return instance;
-        } else {
-            return instance;
         }
+        return instance;
     }
 
     /**

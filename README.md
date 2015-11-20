@@ -9,7 +9,7 @@ $ chmod +x client
 $ chmod +x server
 ```
 
-While not necessary, this `chmod +x` command allows you to execute the `client.sh` and `server.sh` scripts.
+While not necessary, this `chmod +x` command allows you to execute the `client` and `server` scripts.
 
 These scripts do exactly the same thing, one for the client application and the other one for the server application. The scripts can be used to compile each application and then run them. Both scripts allow you to use these flags:
 
