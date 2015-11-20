@@ -1,7 +1,10 @@
 package com.aziflaj.irc.client.logic;
 
 import com.aziflaj.irc.client.utils.PropertyReader;
+import com.aziflaj.irc.client.view.MainFrame;
 
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
 import java.io.*;
 import java.net.Socket;
 
@@ -24,6 +27,7 @@ public class IrcClient {
                 int port = Integer.parseInt(PropertyReader.valueOf("port"));
 
                 instance = new IrcClient(host, port);
+                instance.readFromServer();
             } catch (IOException e) {
                 System.err.println("Can't create instance");
                 e.printStackTrace();
@@ -33,7 +37,7 @@ public class IrcClient {
     }
 
     public void sendToServer(String message) {
-        out.println(PropertyReader.valueOf("username") + ": " + message);
+        out.println(message);
         out.flush();
     }
 
@@ -45,6 +49,12 @@ public class IrcClient {
                     if ((line = in.readLine()) != null) {
                         // TODO: update view
                         System.out.println(line);
+                        StyledDocument doc = MainFrame.messageThreadTextPane.getStyledDocument();
+                        try {
+                            doc.insertString(doc.getLength(), line, null);
+                        } catch (BadLocationException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         return;
                     }
