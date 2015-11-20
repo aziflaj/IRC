@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
 
+/**
+ * An IRC client using Sockets
+ */
 public class Client {
     public static void main(String[] args) {
         try (
@@ -15,6 +18,22 @@ public class Client {
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()))
         ) {
+//            //TODO: This thread should update a different UI item, such as a TextArea
+//            new Thread(() -> {
+//                while (true) {
+//                    String line;
+//                    try {
+//                        if ((line = in.readLine()) != null) {
+//                            System.out.println(line);
+//                        } else {
+//                            return;
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+
             while (true) {
                 System.out.print(">>> ");
                 String input = stdIn.readLine();
