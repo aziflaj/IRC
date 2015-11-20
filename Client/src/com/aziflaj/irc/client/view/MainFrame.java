@@ -5,13 +5,14 @@ import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * Wrapper of the UI of the IRC Client.
+ */
 public class MainFrame extends JFrame {
     public static JTextPane messageThreadTextPane;
     public static JTextField newMessageTextField;
 
-    public MainFrame() throws IOException {
-        super("IRC Client");
-
+    public MainFrame(String title) throws IOException {
         // init view variables
         messageThreadTextPane = new JTextPane();
         messageThreadTextPane.setAutoscrolls(true);
@@ -40,6 +41,7 @@ public class MainFrame extends JFrame {
 
         masterPanel.add(messagePanel);
 
+        this.setTitle(title);
         this.add(masterPanel);
         this.pack();
         this.setResizable(false);

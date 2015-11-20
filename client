@@ -3,17 +3,14 @@
 if [ $# -ne 1 ]; then
     echo "Usage: "
     echo " $0 [-c|--compile]      Compile the Client application files"
-    echo " $0 [-d|--delete]       Clean the Client files"
+    echo " $0 [-d|--delete]       Clean the Client .class files"
     echo " $0 [-r|--run]          Compile and run the Client"
     exit
 fi
 
-PROPERTIES=Client/resources/client.properties
-
 if [ "$1" == -c ] || [ "$1" == --compile ]; then
     echo "compiling"
     mkdir -p Client/out/classes
-#    javac -cp Client/src Client/src/com/aziflaj/irc/client/**/*.java:${PROPERTIES}: -d Client/out/classes
     javac -cp Client/src Client/src/com/aziflaj/irc/client/**/*.java -d Client/out/classes
     javac -cp Client/src Client/src/com/aziflaj/irc/client/*.java -d Client/out/classes
 elif [ "$1" == -d ] || [ "$1" == --delete ]; then

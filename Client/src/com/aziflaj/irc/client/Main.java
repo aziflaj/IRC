@@ -1,5 +1,6 @@
 package com.aziflaj.irc.client;
 
+import com.aziflaj.irc.client.utils.PropertyReader;
 import com.aziflaj.irc.client.view.MainFrame;
 
 import javax.swing.*;
@@ -10,12 +11,12 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             MainFrame app = null;
             try {
-                app = new MainFrame();
+                String pageTitle = "IRC Client: " + PropertyReader.valueOf("username");
+                app = new MainFrame(pageTitle);
                 app.setVisible(true);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null,
                         e, "Error", JOptionPane.ERROR_MESSAGE);
-                //e.printStackTrace();
             }
         });
     }

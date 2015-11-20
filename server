@@ -3,7 +3,7 @@
 if [ $# -ne 1 ]; then
     echo "Usage: "
     echo " $0 [-c|--compile]      Compile the Server application files"
-    echo " $0 [-d|--delete]       Clean the Client files"
+    echo " $0 [-d|--delete]       Clean the Server .class files"
     echo " $0 [-r|--run]          Compile and run the Server"
     exit
 fi
