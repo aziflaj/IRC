@@ -17,6 +17,7 @@ These scripts do exactly the same thing, one for the client application and the 
 - `-r` or `--run`: Compile and run the `*.class` files in`Client/out/classes/` and `Server/out/classes/`
 
 ## ToDO
-- [ ] Add multithreading for multiple clients
+- [x] Add multithreading for multiple clients
+- [ ] Multiple clients talk together
 - [ ] Add User Interface
 - [ ] Create JARs
