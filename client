@@ -3,6 +3,7 @@
 if [ $# -ne 1 ]; then
     echo "Usage: "
     echo " $0 [-c|--compile]      Compile the Client application files"
+    echo " $0 [-d|--delete]       Clean the Client files"
     echo " $0 [-r|--run]          Compile and run the Client"
     exit
 fi
@@ -10,12 +11,14 @@ fi
 if [ "$1" == -c ] || [ "$1" == --compile ]; then
     echo "compiling"
     mkdir -p Client/out/classes
+    javac -cp Client/src Client/src/com/aziflaj/irc/client/**/*.java -d Client/out/classes
     javac -cp Client/src Client/src/com/aziflaj/irc/client/*.java -d Client/out/classes
+elif [ "$1" == -d ] || [ "$1" == --delete ]; then
+    rm -rf Client/out
 elif [ "$1" == -r ] || [ "$1" == --run ]; then
     ./$0 --compile
     echo "running"
-    java -cp Client/out/classes com.aziflaj.irc.client.Client
+    java -cp Client/out/classes com.aziflaj.irc.client.Main
 else
-    echo "I'm confused, what should I do again?"
-    exit
+    ./$0
 fi

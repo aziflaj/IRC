@@ -1,4 +1,4 @@
-package com.aziflaj.irc.client;
+package com.aziflaj.irc.client.logic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
