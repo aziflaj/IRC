@@ -35,7 +35,7 @@ public class MultiClientHandler implements Runnable {
     }
 
     /**
-     * Overriding the {@code run()} method to create the thread
+     * Overriding the {@code run()} method to create a thread for each client
      */
     @Override
     public void run() {

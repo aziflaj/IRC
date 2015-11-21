@@ -6,7 +6,7 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Wrapper of the UI of the IRC Client.
+ * UI wrapper for the IRC Client
  */
 public class MainFrame extends JFrame {
     public static JTextPane messageThreadTextPane;
@@ -26,7 +26,11 @@ public class MainFrame extends JFrame {
 
         sendButton.addActionListener(actionEvent -> {
             String message = newMessageTextField.getText();
-            EventListener.onSendButtonClicked(message);
+            try {
+                EventListener.onSendButtonClicked(message);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         // put everything in its place
@@ -41,6 +45,7 @@ public class MainFrame extends JFrame {
 
         masterPanel.add(messagePanel);
 
+        // customize the UI
         this.setTitle(title);
         this.add(masterPanel);
         this.pack();

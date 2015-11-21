@@ -15,8 +15,7 @@ public class Main {
                 app = new MainFrame(pageTitle);
                 app.setVisible(true);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null,
-                        e, "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }

@@ -36,7 +36,7 @@ port=SERVER-PORT
 username=YOUR-USERNAME-HERE
 ```
 
-You need to set the server-side values correctly or you won't connect to the server. After setting the `host` (String) and `port` (Integer), make sure to add a username for yourself. This will act as an identifier for you when you chat online with other people.
+In your `Client/resources/` folder, rename the `client.properties.example` to `client.properties`. You need to set the server-side values correctly or you won't connect to the server. After setting the `host` (String) and `port` (Integer), make sure to add a username for yourself. This will act as an identifier for you when you chat online with other people.
 
 ## ToDO
 - [x] Add multithreading for multiple clients
