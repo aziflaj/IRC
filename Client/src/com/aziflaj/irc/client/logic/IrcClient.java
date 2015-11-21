@@ -46,8 +46,11 @@ public class IrcClient {
         if (instance == null) {
             String host = PropertyReader.valueOf("host");
             int port = Integer.parseInt(PropertyReader.valueOf("port"));
+            String username = PropertyReader.valueOf("username");
 
             instance = new IrcClient(host, port);
+            // ping the server
+            instance.sendToServer(username + " just joined.");
             // start reading from the server
             instance.readFromServer();
         }
