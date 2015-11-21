@@ -1,8 +1,9 @@
 package com.aziflaj.irc.client.view;
 
 import javax.swing.*;
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 
 /**
@@ -30,6 +31,26 @@ public class MainFrame extends JFrame {
                 EventListener.onSendButtonClicked(message);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        newMessageTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {}
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {}
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String message = newMessageTextField.getText();
+                    try {
+                        EventListener.onSendButtonClicked(message);
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             }
         });
 
