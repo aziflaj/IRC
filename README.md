@@ -42,4 +42,3 @@ In your `Client/resources/` folder, rename the `client.properties.example` to `c
 - [x] Add multithreading for multiple clients
 - [x] Multiple clients talk together
 - [x] Add User Interface
-- [ ] Create JARs
