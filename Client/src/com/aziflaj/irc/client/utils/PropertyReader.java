@@ -7,7 +7,7 @@ import java.util.Properties;
  * A helper class that reads the *.properties file
  */
 public final class PropertyReader {
-    private static final String PROPERTIES_DIR = "Client/resources/";
+    private static final String PROPERTIES_DIR = "resources/";
     private static final String PROPERTIES_FILE = "client.properties";
     private static Properties instance = null;
 
